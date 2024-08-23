@@ -239,6 +239,7 @@ public class Registro extends javax.swing.JFrame {
 
     private void VerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerificarMouseClicked
 
+    //comentario agregado    
     if (Usuario_data.getText().isEmpty() || Usuario_data.getText().isEmpty() ){
         JOptionPane.showMessageDialog(null, "Complete la información solicitada...","Entrada Inválida",JOptionPane.WARNING_MESSAGE);
     }else{        
