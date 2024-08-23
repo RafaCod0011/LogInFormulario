@@ -4,6 +4,8 @@
  */
 package Grafico;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Rafa
@@ -50,7 +52,6 @@ public class Registro extends javax.swing.JFrame {
         Titulo.setBackground(new java.awt.Color(204, 204, 255));
 
         Inicio_Titulo.setFont(new java.awt.Font("sansserif", 0, 36)); // NOI18N
-        Inicio_Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Inicio_Titulo.setText("Inicio de sesion");
 
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
@@ -75,7 +76,6 @@ public class Registro extends javax.swing.JFrame {
         Fondo_ventana.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         Cedenciales.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Cedenciales.setForeground(new java.awt.Color(0, 0, 0));
         Cedenciales.setText("Ingrese sus credenciales");
 
         Fondo_LogIn.setBackground(new java.awt.Color(153, 153, 153));
@@ -83,23 +83,23 @@ public class Registro extends javax.swing.JFrame {
 
         Verificar.setBackground(new java.awt.Color(255, 255, 255));
         Verificar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Verificar.setForeground(new java.awt.Color(0, 0, 0));
         Verificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafico/Imagenes/Verificar.png"))); // NOI18N
         Verificar.setText("Verificar");
         Verificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Verificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerificarMouseClicked(evt);
+            }
+        });
         Verificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VerificarActionPerformed(evt);
             }
         });
 
-        Usuario.setForeground(new java.awt.Color(0, 0, 0));
         Usuario.setText("Usuario:");
 
-        Pass.setForeground(new java.awt.Color(0, 0, 0));
         Pass.setText("Contraseña:");
-
-        Usuario_data.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout Fondo_LogInLayout = new javax.swing.GroupLayout(Fondo_LogIn);
         Fondo_LogIn.setLayout(Fondo_LogInLayout);
@@ -169,7 +169,6 @@ public class Registro extends javax.swing.JFrame {
 
         Ocultar.setBackground(new java.awt.Color(255, 255, 255));
         Ocultar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Ocultar.setForeground(new java.awt.Color(0, 0, 0));
         Ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafico/Imagenes/Ocultar.png"))); // NOI18N
         Ocultar.setText("Ocultar");
         Ocultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -181,7 +180,6 @@ public class Registro extends javax.swing.JFrame {
 
         Ver.setBackground(new java.awt.Color(255, 255, 255));
         Ver.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        Ver.setForeground(new java.awt.Color(0, 0, 0));
         Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafico/Imagenes/Ver.png"))); // NOI18N
         Ver.setText("Ver");
         Ver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -239,9 +237,39 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_OcultarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void VerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerificarMouseClicked
+
+    if (Usuario_data.getText().isEmpty() || Usuario_data.getText().isEmpty() ){
+        JOptionPane.showMessageDialog(null, "Complete la información solicitada...","Entrada Inválida",JOptionPane.WARNING_MESSAGE);
+    }else{        
+        //Si completó la información, la corrobora para ver si coincide con los autorizados
+         String usuario="alumno@ulp.edu.ar";
+         String pass="12345678";
+         if (Usuario_data.getText().equalsIgnoreCase(usuario)){
+
+             //El Usuario es el autorizado, ahora controlamos la password
+            if (Usuario_pass.getText().equalsIgnoreCase(pass)){
+               //El Usuario es el autorizado, la password es la indicada
+               JOptionPane.showMessageDialog(null, "AUTORIZADO..","Bienvenido!",JOptionPane.INFORMATION_MESSAGE);
+               dispose(); 
+            }else{
+               JOptionPane.showMessageDialog(null, "Acceso NO AUTORIZADO","Verificación de Acceso al Sistema",JOptionPane.WARNING_MESSAGE);
+            }
+
+         }else{
+            
+             JOptionPane.showMessageDialog(null, "Acceso NO AUTORIZADO","Verificación de Acceso al Sistema",JOptionPane.WARNING_MESSAGE);
+
+         }
+    
+    }    
+
+        
+
+        
+        
+    }//GEN-LAST:event_VerificarMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
