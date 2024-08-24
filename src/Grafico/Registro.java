@@ -173,6 +173,11 @@ public class Registro extends javax.swing.JFrame {
         Ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafico/Imagenes/Ocultar.png"))); // NOI18N
         Ocultar.setText("Ocultar");
         Ocultar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Ocultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OcultarMouseClicked(evt);
+            }
+        });
         Ocultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OcultarActionPerformed(evt);
@@ -184,6 +189,11 @@ public class Registro extends javax.swing.JFrame {
         Ver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grafico/Imagenes/Ver.png"))); // NOI18N
         Ver.setText("Ver");
         Ver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Ver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                VerMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_inferiorLayout = new javax.swing.GroupLayout(Panel_inferior);
         Panel_inferior.setLayout(Panel_inferiorLayout);
@@ -231,11 +241,11 @@ public class Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerificarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_VerificarActionPerformed
 
     private void OcultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OcultarActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_OcultarActionPerformed
 
     private void VerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerificarMouseClicked
@@ -267,10 +277,17 @@ public class Registro extends javax.swing.JFrame {
     }    
 
         
-
-        
-        
     }//GEN-LAST:event_VerificarMouseClicked
+
+    private void OcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OcultarMouseClicked
+       
+        Usuario_pass.setEchoChar('*');
+        
+    }//GEN-LAST:event_OcultarMouseClicked
+
+    private void VerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerMouseClicked
+        Usuario_pass.setEchoChar((char)0);
+    }//GEN-LAST:event_VerMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
