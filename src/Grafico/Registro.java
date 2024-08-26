@@ -251,7 +251,7 @@ public class Registro extends javax.swing.JFrame {
     private void VerificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerificarMouseClicked
 
     //comentario agregado    
-    if (Usuario_data.getText().isEmpty() || Usuario_data.getText().isEmpty() ){
+    if (Usuario_data.getText().isEmpty() || Usuario_pass.getText().isEmpty() ){ // tenemos que controlar que ambos TB tengan datos, si alguno está vacio, no puede ingresar
         JOptionPane.showMessageDialog(null, "Complete la información solicitada...","Entrada Inválida",JOptionPane.WARNING_MESSAGE);
     }else{        
         //Si completó la información, la corrobora para ver si coincide con los autorizados
